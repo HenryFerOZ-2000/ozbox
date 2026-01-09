@@ -90,7 +90,7 @@ export default function AdminProductsPage() {
           variant: "destructive",
         })
       }
-    } catch (error) {
+    } catch {
       toast({
         title: "Error",
         description: "Error al eliminar el producto",

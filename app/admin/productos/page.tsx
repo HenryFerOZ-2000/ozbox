@@ -103,7 +103,7 @@ export default function AdminProductsPage() {
     }
   }
 
-  const handleEdit = (product: any) => {
+  const handleEdit = (product: ProductType) => {
     setEditingProduct(product)
     setShowDialog(true)
   }

@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth"
 import { prisma } from "@/lib/prisma"
 import { z } from "zod"
 import { generateOrderCode } from "@/lib/utils"
+import { OrderStatus, Prisma } from "@prisma/client"
 
 const orderSchema = z.object({
   customerName: z.string().min(1),
@@ -26,9 +27,12 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const status = searchParams.get("status")
 
-    const where: { status?: string; userId?: string } = {}
+    const where: Prisma.OrderWhereInput = {}
     if (status) {
-      where.status = status
+      // Validar que el status sea un valor válido del enum
+      if (Object.values(OrderStatus).includes(status as OrderStatus)) {
+        where.status = status as OrderStatus
+      }
     }
 
     // Si es admin, ver todos. Si es cliente, solo los suyos

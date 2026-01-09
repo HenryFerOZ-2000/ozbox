@@ -43,4 +43,14 @@ next-env.d.ts
 # uploads
 /public/uploads
 
+# Archivos con credenciales (NUNCA commitees)
+VARIABLES-VERCEL.txt
+SECRETS-GENERADOS.txt
+VARIABLES-VERCEL-EXACTAS.md
+PASOS-DEPLOY.md
+GUIA-VERCEL-PASO-A-PASO.md
+NEON-CONNECTION.txt
+*.txt
+!README.md
+
 

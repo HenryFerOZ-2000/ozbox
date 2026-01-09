@@ -25,9 +25,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function AdminCategoriesPage() {
-  const [categories, setCategories] = useState<any[]>([])
+  const [categories, setCategories] = useState<Array<{ id: string; name: string; slug: string }>>([])
   const [loading, setLoading] = useState(true)
-  const [editingCategory, setEditingCategory] = useState<any>(null)
+  const [editingCategory, setEditingCategory] = useState<{ id: string; name: string; slug: string } | null>(null)
   const [showDialog, setShowDialog] = useState(false)
   const [formData, setFormData] = useState({ name: "" })
   const { toast } = useToast()

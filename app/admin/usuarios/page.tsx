@@ -27,7 +27,12 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function AdminUsersPage() {
-  const [users, setUsers] = useState<any[]>([])
+  const [users, setUsers] = useState<Array<{
+    id: string
+    email: string
+    role: string
+    createdAt: string
+  }>>([])
   const [loading, setLoading] = useState(true)
   const [showDialog, setShowDialog] = useState(false)
   const [formData, setFormData] = useState({

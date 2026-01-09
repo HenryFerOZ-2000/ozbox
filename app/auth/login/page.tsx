@@ -39,7 +39,7 @@ export default function LoginPage() {
         router.push("/")
         router.refresh()
       }
-    } catch (error) {
+    } catch {
       toast({
         title: "Error",
         description: "Error al iniciar sesión",

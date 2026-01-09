@@ -12,7 +12,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { formatPrice } from "@/lib/utils"
 import { useToast } from "@/hooks/use-toast"
@@ -26,16 +25,17 @@ const statusLabels: Record<string, string> = {
   CANCELADO: "Cancelado",
 }
 
-const statusColors: Record<string, string> = {
-  PENDIENTE: "bg-yellow-500",
-  PAGADO: "bg-blue-500",
-  ENVIADO: "bg-purple-500",
-  ENTREGADO: "bg-green-500",
-  CANCELADO: "bg-red-500",
-}
 
 export default function AdminOrdersPage() {
-  const [orders, setOrders] = useState<any[]>([])
+  const [orders, setOrders] = useState<Array<{
+    id: string
+    code: string
+    customerName: string
+    total: number
+    status: string
+    createdAt: string
+    items: Array<{ id: string }>
+  }>>([])
   const [loading, setLoading] = useState(true)
   const [statusFilter, setStatusFilter] = useState<string>("")
   const { toast } = useToast()

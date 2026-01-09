@@ -26,7 +26,11 @@ export async function GET(request: NextRequest) {
     const limit = parseInt(searchParams.get("limit") || "12")
     const skip = (page - 1) * limit
 
-    const where: any = {
+    const where: {
+      status: string
+      categoryId?: string
+      OR?: Array<{ name: { contains: string; mode: string } } | { description: { contains: string; mode: string } }>
+    } = {
       status: "ACTIVO",
     }
 
@@ -41,7 +45,7 @@ export async function GET(request: NextRequest) {
       ]
     }
 
-    const orderBy: any = {}
+    const orderBy: { price?: string; createdAt?: string } = {}
     if (sort === "price-asc") {
       orderBy.price = "asc"
     } else if (sort === "price-desc") {

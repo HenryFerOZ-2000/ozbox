@@ -1,0 +1,49 @@
+⚠️ NO COMMITEES ESTE ARCHIVO ⚠️
+Elimínalo después de configurar Vercel
+
+===========================================
+VARIABLES DE ENTORNO PARA VERCEL
+===========================================
+
+1. DATABASE_URL
+postgresql://neondb_owner:npg_HKv6Dtqc7AYa@ep-billowing-grass-ahmvuajf-pooler.c-3.us-east-1.aws.neon.tech/neondb?sslmode=require
+
+2. NEXTAUTH_SECRET
+LYckkQ75GlaxLtru4+DqEb1CGOoBQiE2/xBGD0LOjP0=
+
+3. NEXTAUTH_URL
+https://tu-app.vercel.app
+(Se actualizará después del primer deploy con la URL real)
+
+4. CLOUDINARY_CLOUD_NAME
+dphwyepkm
+
+5. CLOUDINARY_API_KEY
+226862335399267
+
+6. CLOUDINARY_API_SECRET
+M9rNKANfz9BcxlbGphYEoXdn7tA
+
+7. BOOTSTRAP_TOKEN
+t8yQOlmLng8hEskGLmFJL65OXRRL3Hcf07xiEpNr75s=
+
+8. NEXT_PUBLIC_SITE_URL
+https://tu-app.vercel.app
+(Se actualizará después del primer deploy con la URL real)
+
+9. NEXT_PUBLIC_SHIPPING_DEFAULT
+5000
+
+10. SHIPPING_DEFAULT
+5000
+
+===========================================
+INSTRUCCIONES PARA VERCEL
+===========================================
+
+1. Ve a Settings > Environment Variables
+2. Agrega cada variable una por una
+3. Marca todas para: Production, Preview, Development
+4. Guarda cada una
+5. Luego haz clic en Deploy
+

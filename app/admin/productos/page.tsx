@@ -1,10 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import {
   Table,
   TableBody,
@@ -28,10 +27,20 @@ import {
 import { ProductForm } from "@/components/admin/product-form"
 
 export default function AdminProductsPage() {
-  const [products, setProducts] = useState<any[]>([])
-  const [categories, setCategories] = useState<any[]>([])
+  const [products, setProducts] = useState<Array<{
+    id: string
+    name: string
+    slug: string
+    price: number
+    salePrice: number | null
+    stock: number
+    status: string
+    category: { name: string }
+    images: Array<{ url: string; order: number }>
+  }>>([])
+  const [categories, setCategories] = useState<Array<{ id: string; name: string }>>([])
   const [loading, setLoading] = useState(true)
-  const [editingProduct, setEditingProduct] = useState<any>(null)
+  const [editingProduct, setEditingProduct] = useState<typeof products[0] | null>(null)
   const [showDialog, setShowDialog] = useState(false)
   const { toast } = useToast()
 

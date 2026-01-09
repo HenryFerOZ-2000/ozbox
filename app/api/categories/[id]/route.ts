@@ -23,7 +23,7 @@ export async function PUT(
     const body = await request.json()
     const data = categorySchema.parse(body)
 
-    const updateData: any = { ...data }
+    const updateData: Record<string, unknown> = { ...data }
     if (data.name && !data.slug) {
       updateData.slug = slugify(data.name)
     }

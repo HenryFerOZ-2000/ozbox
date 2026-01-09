@@ -1,9 +1,8 @@
 "use client"
 
 import { useCartStore } from "@/store/cart-store"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { formatPrice } from "@/lib/utils"
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
 import Link from "next/link"

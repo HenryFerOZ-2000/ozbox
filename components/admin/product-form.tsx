@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -10,8 +10,18 @@ import { Upload, X } from "lucide-react"
 import Image from "next/image"
 
 interface ProductFormProps {
-  product?: any
-  categories: any[]
+  product?: {
+    id: string
+    name: string
+    description: string
+    price: number
+    salePrice: number | null
+    stock: number
+    status: string
+    categoryId: string
+    images: Array<{ url: string; publicId?: string; order: number }>
+  }
+  categories: Array<{ id: string; name: string }>
   onSuccess: () => void
   onCancel: () => void
 }
@@ -224,7 +234,7 @@ export function ProductForm({ product, categories, onSuccess, onCancel }: Produc
       <div>
         <Label>Imágenes</Label>
         <div className="mt-2 grid grid-cols-4 gap-4">
-          {formData.images.map((image: any, index: number) => (
+          {formData.images.map((image: { url: string; publicId?: string; order: number }, index: number) => (
             <div key={index} className="relative aspect-square overflow-hidden rounded-lg border">
               <Image src={image.url} alt={`Imagen ${index + 1}`} fill className="object-cover" />
               <Button

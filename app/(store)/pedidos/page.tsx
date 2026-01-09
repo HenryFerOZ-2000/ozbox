@@ -26,7 +26,15 @@ const statusColors: Record<string, string> = {
 
 export default function OrdersPage() {
   const { data: session } = useSession()
-  const [orders, setOrders] = useState<any[]>([])
+  const [orders, setOrders] = useState<Array<{
+    id: string
+    code: string
+    customerName: string
+    total: number
+    status: string
+    createdAt: string
+    items: Array<{ id: string; nameSnapshot: string; quantity: number }>
+  }>>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

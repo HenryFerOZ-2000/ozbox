@@ -58,7 +58,7 @@ export async function PUT(
     const body = await request.json()
     const data = productSchema.parse(body)
 
-    const updateData: any = { ...data }
+    const updateData: Record<string, unknown> = { ...data }
     if (data.name && !body.slug) {
       updateData.slug = slugify(data.name)
     }

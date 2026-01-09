@@ -27,20 +27,24 @@ import {
 import { ProductForm } from "@/components/admin/product-form"
 
 export default function AdminProductsPage() {
-  const [products, setProducts] = useState<Array<{
+  type ProductType = {
     id: string
     name: string
     slug: string
+    description: string
     price: number
     salePrice: number | null
     stock: number
     status: string
+    categoryId: string
     category: { name: string }
-    images: Array<{ url: string; order: number }>
-  }>>([])
+    images: Array<{ url: string; publicId?: string; order: number }>
+  }
+
+  const [products, setProducts] = useState<Array<ProductType>>([])
   const [categories, setCategories] = useState<Array<{ id: string; name: string }>>([])
   const [loading, setLoading] = useState(true)
-  const [editingProduct, setEditingProduct] = useState<typeof products[0] | null>(null)
+  const [editingProduct, setEditingProduct] = useState<ProductType | null>(null)
   const [showDialog, setShowDialog] = useState(false)
   const { toast } = useToast()
 
@@ -223,7 +227,7 @@ export default function AdminProductsPage() {
             </DialogDescription>
           </DialogHeader>
           <ProductForm
-            product={editingProduct}
+            product={editingProduct ?? undefined}
             categories={categories}
             onSuccess={handleSuccess}
             onCancel={handleClose}

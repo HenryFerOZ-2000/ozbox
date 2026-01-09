@@ -9,18 +9,16 @@ const requiredEnvVars = [
   "DATABASE_URL",
   "NEXTAUTH_SECRET",
   "NEXTAUTH_URL",
+  "CLOUDINARY_CLOUD_NAME",
+  "CLOUDINARY_API_KEY",
+  "CLOUDINARY_API_SECRET",
+  "BOOTSTRAP_TOKEN",
+  "NEXT_PUBLIC_SITE_URL",
+  "NEXT_PUBLIC_SHIPPING_DEFAULT",
+  "SHIPPING_DEFAULT",
 ]
 
 const isProduction = process.env.NODE_ENV === "production"
-
-// En producción, Cloudinary es obligatorio
-if (isProduction) {
-  requiredEnvVars.push(
-    "CLOUDINARY_CLOUD_NAME",
-    "CLOUDINARY_API_KEY",
-    "CLOUDINARY_API_SECRET"
-  )
-}
 
 const missing = requiredEnvVars.filter((key) => !process.env[key])
 

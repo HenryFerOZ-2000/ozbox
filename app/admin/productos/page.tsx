@@ -227,7 +227,17 @@ export default function AdminProductsPage() {
             </DialogDescription>
           </DialogHeader>
           <ProductForm
-            product={editingProduct ?? undefined}
+            product={editingProduct ? {
+              id: editingProduct.id,
+              name: editingProduct.name,
+              description: editingProduct.description,
+              price: editingProduct.price,
+              salePrice: editingProduct.salePrice,
+              stock: editingProduct.stock,
+              status: editingProduct.status,
+              categoryId: editingProduct.categoryId,
+              images: editingProduct.images,
+            } : undefined}
             categories={categories}
             onSuccess={handleSuccess}
             onCancel={handleClose}
